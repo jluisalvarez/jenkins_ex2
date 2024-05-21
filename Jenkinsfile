@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing...2024'
+                echo 'Testing...(2024)'
            }
         }
         stage('Deploy') {
