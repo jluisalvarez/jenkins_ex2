@@ -1,5 +1,11 @@
 # Jenkins Example 2. Pipeline Job
 
+## Requisitos
+
+- Java
+- Docker
+- Jenkins
+
 ## Pipeline
 
 - Crea un Tarea de Pipeline

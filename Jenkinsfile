@@ -43,7 +43,10 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying...'
+                sh '''
+                    echo "Deploying..."
+                    kubectl version --client
+                '''
             }
         }
     }
