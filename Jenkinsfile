@@ -33,7 +33,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Cleaning..."
-                echo $TAG
+                docker rmi jluisalvarez/flask_hello:$TAG
                 ''' 
                 
            }
