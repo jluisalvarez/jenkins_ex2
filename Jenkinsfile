@@ -22,10 +22,16 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                sh '''
-                echo "Publishing..."
-                echo $TAG
-                ''' 
+                withCredentials([usernamePassword(credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    echo "username is $USERNAME"
+                    sh '''
+                        echo "Publishing..."
+                        docker login -u="${USERNAME}" -p="${PASSWORD}"
+                        docker push jluisalvarez/flask_hello:$TAG
+                    ''' 
+                
+                }
+
                 
            }
         }
