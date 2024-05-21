@@ -22,8 +22,7 @@ pipeline {
         }
         stage('Publish') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'amazon', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                    echo "username is $USERNAME"
+                withCredentials([usernamePassword(credentialsId: 'dockerhub_credentials', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh '''
                         echo "Publishing..."
                         docker login -u="${USERNAME}" -p="${PASSWORD}"
@@ -31,9 +30,7 @@ pipeline {
                     ''' 
                 
                 }
-
-                
-           }
+            }
         }
         stage('Clean') {
             steps {
