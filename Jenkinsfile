@@ -45,7 +45,8 @@ pipeline {
             steps {
                 sh '''
                     echo "Deploying..."
-                    kubectl version --client
+                    # kubectl config --kubeconfig=your_kubeconfi_file_path <YOUR_OPERATION> 
+                    pwd
                 '''
             }
         }
