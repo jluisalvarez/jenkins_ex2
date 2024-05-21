@@ -11,8 +11,8 @@ pipeline {
             steps {
                 sh '''
                 echo "Building..."
-                TAG=`date "+%d%m%Y-%H%M%S"`
-                docker build -t jluisalvarez/flask_hello:$TAG .
+                params.TAG=`date "+%d%m%Y-%H%M%S"`
+                docker build -t jluisalvarez/flask_hello:$params.TAG .
                 '''
             }
         }
@@ -25,6 +25,15 @@ pipeline {
             steps {
                 sh '''
                 echo "Publishing..."
+                echo $params.TAG
+                ''' 
+                
+           }
+        }
+        stage('Clean') {
+            steps {
+                sh '''
+                echo "Cleaning..."
                 echo $TAG
                 ''' 
                 
