@@ -2,8 +2,8 @@ pipeline {
 
     agent any
 
-    parameters {
-        string(name: "TAG", defaultValue: "latest", trim: true)
+    environment { 
+        TAG = 'latest'
     }
 
     stages {
