@@ -5,7 +5,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Building..."'
+                sh '''
+                echo "Building..."
+                docker ps
+                '''
             }
         }
         stage('Test') {
