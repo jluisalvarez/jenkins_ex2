@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment { 
-        TAG = 'latest'
+        TAG = sh (returnStdout: true, script: 'date "+%d%m%Y-%H%M%S"').trim()
     }
 
     stages {
@@ -11,7 +11,6 @@ pipeline {
             steps {
                 sh '''
                 echo "Building..."
-                TAG=`date "+%d%m%Y-%H%M%S"`
                 docker build -t jluisalvarez/flask_hello:$TAG .
                 '''
             }
