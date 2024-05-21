@@ -11,8 +11,8 @@ pipeline {
             steps {
                 sh '''
                 echo "Building..."
-                params.TAG=`date "+%d%m%Y-%H%M%S"`
-                docker build -t jluisalvarez/flask_hello:$params.TAG .
+                TAG=`date "+%d%m%Y-%H%M%S"`
+                docker build -t jluisalvarez/flask_hello:$TAG .
                 '''
             }
         }
@@ -25,7 +25,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Publishing..."
-                echo $params.TAG
+                echo $TAG
                 ''' 
                 
            }
